@@ -1,0 +1,75 @@
+#include<stdio.h>
+int main()
+{
+    int r1,c1,r2,c2;
+    printf("Enter no of rows in 1st array: \n");
+    scanf("%d",&r1);
+
+     printf("Enter no of column in 1st array: \n");
+    scanf("%d",&c1);
+
+    int arr1[r1][c1];
+     printf("Enter no of rows in 2st array: \n");
+    scanf("%d",&r2);
+
+     printf("Enter no of columns in 2st array: \n");
+    scanf("%d",&c2);
+
+    int arr2[r2][c2];
+    if(c1!=r2)
+    {
+        printf("Multiplication not possible ");
+    }
+    else if(c1==r2)
+    {
+    printf("Enter Array 1 elements :\n");
+    for(int i=0;i<r1;i++)
+    {
+        for(int j=0;j<c1;j++)
+        {
+            scanf("%d",&arr1[i][j]);
+        }
+    }
+
+    printf("Enter Array 2 elements :\n");
+    for(int i=0;i<r2;i++)
+    {
+        for(int j=0;j<c2;j++)
+        {
+            scanf("%d",&arr2[i][j]);
+        }
+    }
+
+    int arr3[r1][c2];
+    for(int i=0;i<r1;i++)
+    {
+        for(int j=0;j<c2;j++)
+        {
+            arr3[i][j]=0;
+        }
+    }
+
+
+    for(int i=0;i<r1;i++)
+    {
+        for(int j=0;j<c2;j++)
+        {
+            for(int k=0;k<c1;k++)
+            {
+                arr3[i][j] += arr1[i][k] * arr2[k][j];
+            }
+        }
+    }
+    printf("The Resultant matrix\n");
+    for(int i=0;i<r1;i++)
+    {
+        for(int j=0;j<c2;j++)
+        {
+            printf("%d  ",arr3[i][j]);
+        }
+        printf("\n");
+    }
+
+}
+return 0;
+}
